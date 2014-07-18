@@ -5,12 +5,10 @@
  */
 chrome.app.runtime.onLaunched.addListener(function() {
   chrome.app.window.create('index.html', {
-    width: 300,
-    height: 300
-  });
-  chrome.app.window.create('index.html', {
-    width: 200,
-    height: 200
+  	bounds: {
+    width: 500,
+    height: 309
+	}
   });
 });
       

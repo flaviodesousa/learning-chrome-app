@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html ng-app ng-csp>
 <head>
     <meta charset="utf-8">
-    <title>My Hello World</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="controller.js"></script>
+    <link rel="stylesheet" href="todo.css">
+    <title>My Todo</title>
 </head>
 <body>
-    <h1>Mine: Hello, World!</h1>
+    <h2>Todo</h2>
+    <div ng-controller="TodoCtrl">
+	    <span>{{remaining()}} of {{todos.length}} remaining</span>
+	    <ul>
+	    	<li ng-repeat="todo in todos">
+	    		<input type="checkbox" ng-model="todo.done">
+	    		<span class="done-{{todo.done}}">{{todo.text}}</span>
+	    	</li>
+	    </ul>
+	    <form ng-submit="addTodo()">
+	    	<input type="text" ng-model="todoText" size="30" placeholder="Todo text here">
+	    	<input class="btn-primary" type="submit" value="Novo">
+	    </form>
+    </div>
 </body>
 </html>
